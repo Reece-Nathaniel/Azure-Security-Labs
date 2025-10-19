@@ -8,7 +8,7 @@ From the Azure Portal, I user the search bar to access **Microsoft Entra ID**, I
 ---
 ## Step 2: Create a Security Group 
 Next, I created a **Security Group** named *Senior Admins* to simplify access management by assigning roles to groups instead of idividual users. This is best practise for simplifying RBAC in large scale tenants. 
-![Creating new security group]./(2025-10-17%20(21).png)
+![Creating new security group](./2025-10-17%20(21).png)
 ---
 ## Step 3: Assigning a User as Admin of the Security Group
 I then assigned the user *Joseph Price* the admin role for the *Senior Admins* security group. 
@@ -16,15 +16,15 @@ I then assigned the user *Joseph Price* the admin role for the *Senior Admins* s
 ---
 ## Step 4: Add User via PowerShell
 Using PowerShell, I then added a user called *Isabel Garcia* and created a group called *Junior Admins*, adding the user to the group.
-![User and group creation through powershell](./2025-10-17%20(23).png) ![Continued user and group creation through powershell](2025-10-17 (24))
+![User and group creation through powershell](./2025-10-17%20(23).png) ![Continued user and group creation through powershell](./2025-10-17%20(24).png)
 ---
 ## Step 5: Add User via Bash 
 I then switched to a **Bash** window to add a user called *Dylan Williams* and create a group called *Service Desk*, adding the user to the group.
-![User and group creation through bash]./(2025-10-17%20(25).png) ![Continued user and group creation through bash](./2025-10-17%20(26).png) ![Final user and group creation through bash](./2025-10-17%20(27).png)
+![User and group creation through bash](./2025-10-17%20(25).png) ![Continued user and group creation through bash](./2025-10-17%20(26).png) ![Final user and group creation through bash](./2025-10-17%20(27).png)
 ---
 ## Step 6: Creating a Resource Group 
 After this, I navigated back to the **Azure Portal** to create a Resource Group *AZ500-Lab01*.
-![Creating the AZ500-Lab01 resource group]./(2025-10-17%20(28).png)
+![Creating the AZ500-Lab01 resource group](./2025-10-17%20(28).png)
 ---
 ## Step 7: Assigning a Role at the Resource Group Level
 From here, I used the **Access Control Management (IAM)** blade in the AZ500-Lab01 resoure group to assign a role. I searched for the **Virtual Machine Contributor** and added the **Service Desk** group as a member. This gives the permission to any user or resource who is a member of the group to manage virtual machines but not delete the resource group itself, following the **principle of least privilege**
