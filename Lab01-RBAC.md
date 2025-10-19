@@ -32,7 +32,7 @@ From here, I used the **Access Control Management (IAM)** blade in the AZ500-Lab
 ---
 ## Step 8: Verification 
 Finally, I verified the users and groups were given the correct roles to verify my actions had taken place. 
-![Verification of Users and Roles]./(2025-10-17%20(30).png)
+![Verification of Users and Roles](./2025-10-17%20(30).png)
 ---
 ## Key Takeaways 
 - RBAC allows for fine-grained control over Azure users and resources.
