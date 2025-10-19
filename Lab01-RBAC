@@ -1,0 +1,30 @@
+# Lab 01: Role Based Access Control (RBAC) 
+## Overview:
+This lab focuses on implementing **Role-Based Access Control (RBAC)** in Azure to manage access to resources and groups based on assigned roles. The goal is to enforce the **principle of least privilege**, ensuring users only have permissions necessary to the specific job or task they may have at hand. 
+---
+## Step 1: Create a New User
+From the Azure Portal, I user the search bar to access **Microsoft Entra ID**, I then selected the *Users* bladeand selected *Add -> Create new user*. From Here, I created a new user named **Joseph Price**
+---
+## Step 2: Create a Security Group 
+Next, I created a **Security Group** named *Senior Admins* to simplify access management by assigning roles to groups instead of idividual users. This is best practise for simplifying RBAC in large scale tenants. 
+---
+## Step 3: Add User via PowerShell
+Using PowerShell, I then added a user called *Isabel Garcia* and created a group called *Junior Admins*, adding the user to the group.
+---
+## Step 4: Add User via Bash 
+I then switched to a **Bash** window to add a user called *Dylan Williams* and create a group called *Service Desk*, adding the user to the group.
+---
+## Step 5: Assign Roles 
+After this, I navigated back to the **Azure Portal** to assign the **Virtual Machine Contributor** role to the **Service Desk** group at the **resource group level** ('Az500Lab01'). This gives the permission to any user or resource who is a member of the group to manage virtual machines but not delete the resource group itself, following the **principle of least privilege**
+---
+## Step 6: Verification 
+Finally, I verified the users and groups were given the correct roles to verify my actions had taken place. 
+---
+## Key Takeaways 
+- RBAC allows for fine-grained control over Azure users and resources.
+- Assigning roles to groups allows for a larger scope in order to simplify management and improve the security of a tenant.
+- Following the **principle of least privilege** allows for proper user control and reduces the risk of accidental or malicious actions
+---
+## Summary 
+This lab demonstrates how RBAC helps organisations control access efficiently across Azure. By assigning permissions to groups and verifying access levels, administators can ensure a secure and scalable access model across their tenant or other area of administration. 
+*End of Lab 01 - Role-Based Access Control*
