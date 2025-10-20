@@ -3,7 +3,7 @@
 This lab focuses on implementing **Role-Based Access Control (RBAC)** in Azure to manage access to resources and groups based on assigned roles. The goal is to enforce the **principle of least privilege**, ensuring users only have permissions necessary to the specific job or task they may have at hand. 
 ---
 ## Step 1: Create a New User
-From the Azure Portal, I user the search bar to access **Microsoft Entra ID**, I then selected the *Users* bladeand selected *Add -> Create new user*. From Here, I created a new user named **Joseph Price**
+From the Azure Portal, I used the search bar to access **Microsoft Entra ID**, I then selected the *Users* blade and selected *Add -> Create new user*. From Here, I created a new user named **Joseph Price**
 ![Creating new user](../2025-10-17%20(20).png)
 ---
 ## Step 2: Create a Security Group 
