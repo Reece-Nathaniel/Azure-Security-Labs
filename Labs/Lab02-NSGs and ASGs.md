@@ -12,7 +12,7 @@ I began by creating a **Virtual Network (VNet)** named `VNet1` with an address s
 Within it, I added a **subnet** named `Subnet1` with an address range of `10.0.1.0/24`.  
 This provided an isolated network for testing inbound and outbound traffic control.
 
-![Creating Virtual Network](./2025-10-22.png)
+![Creating Virtual Network](../2025-10-22.png)
 
 ---
 
@@ -23,7 +23,7 @@ Next, I created two **Application Security Groups** to logically group my virtua
 
 These ASGs allow me to apply NSG rules based on group membership instead of individual IP addresses.
 
-![Creating Application Security Groups](./2025-10-22%20(1).png)
+![Creating Application Security Groups](../2025-10-22%20(1).png)
 
 ---
 
@@ -31,14 +31,14 @@ These ASGs allow me to apply NSG rules based on group membership instead of indi
 I created a **Network Security Group (NSG)** named `myNSG` in the same region and resource group.  
 The NSG was configured with inbound security rules to control access to the VMs.
 
-![Creating NSG](./2025-10-22%20(2).png)
+![Creating NSG](../2025-10-22%20(2).png)
 
 ---
 
 ## Step 4: Add Inbound Security Rules
 I added the following inbound security rules to the NSG:
 
-![Creating Inbound Rules](./2025-10-22%20(3).png)
+![Creating Inbound Rules](../2025-10-22%20(3).png)
 
 This configuration allows HTTP access to the web VM and RDP access to the management VM while denying all other inbound traffic.
 
@@ -49,8 +49,8 @@ I deployed two virtual machines within `Subnet1`:
 - **myVmWeb** — configured as the **web server**
 - **myVmMgmt** — used as the **management VM**
 
-![Web VM Configuration](./2025-10-22%20(4).png)
-![Management VM Configuration](./2025-10-22%20(5).png)
+![Web VM Configuration](../2025-10-22%20(4).png)
+![Management VM Configuration](../2025-10-22%20(5).png)
 
 ---
 
@@ -59,15 +59,15 @@ After deployment, I associated each VM’s **network interface** with the approp
 - **myVmWeb** → `Web-ASG`
 - **myVmMgmt** → `Management-ASG`
 
-![myVmWeb connected to Web-ASG](./2025-10-22%20(6).png)
-![myVmMgmt connected to Management-ASG](./2025-10-22%20(7).png)
+![myVmWeb connected to Web-ASG](../2025-10-22%20(6).png)
+![myVmMgmt connected to Management-ASG](../2025-10-22%20(7).png)
 
 ---
 
 ## Step 7: Configure Web Server
 On `myVmWeb`, I ran the following PowerShell command to install IIS: Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
-![Scripting command](./2025-10-22%20(8).png)
+![Scripting command](../2025-10-22%20(8).png)
 
 ---
 
@@ -75,7 +75,7 @@ On `myVmWeb`, I ran the following PowerShell command to install IIS: Install-Win
 I tested connectivity on myVmMgmt by entering the public IP address of myVmWeb in a different window within the browser.
 The default IIS web page successfully loaded, confirming that the NSG rules and ASG associations were working correctly.
 
-![IIS default page](./2025-10-22%20(9).png)
+![IIS default page](../2025-10-22%20(9).png)
 
 ---
 
@@ -83,7 +83,7 @@ The default IIS web page successfully loaded, confirming that the NSG rules and 
 To avoid unnecessary costs, I removed all related resources by deleting the resource group with the following command:
 Remove-AzResourceGroup -Name AZ500-Lab02 -Force
 
-![Powershell resource clean-up command](./2025-10-22%20(10).png)
+![Powershell resource clean-up command](../2025-10-22%20(10).png)
 
 ---
 
