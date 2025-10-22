@@ -8,7 +8,7 @@ All resources were deployed in the **West Europe** region.
 ---
 
 ## Step 1: Create a Virtual Network and Subnet
-I began by creating a **Virtual Network (VNet)** named `VNet1` with an address space of `10.0.0.0/16`.  
+I began by creating a **Virtual Network (VNet)** named `VNet1` with an address space of `10.0.0.0/16` in the West Europe region.  
 Within it, I added a **subnet** named `Subnet1` with an address range of `10.0.1.0/24`.  
 This provided an isolated network for testing inbound and outbound traffic control.
 
@@ -90,4 +90,4 @@ Remove-AzResourceGroup -Name AZ500-Lab02 -Force
 ## Summary:
 This lab demonstrated how Network Security Groups (NSGs) and Application Security Groups (ASGs) can be used together to control traffic between Azure resources.
 By testing HTTP and RDP connectivity between myVmWeb and myVmMgmt, I confirmed that traffic filtering rules and group associations worked as intended - reinforcing the importance of proper network segmentation and security in Azure environments.
-*End of Lab 02 - Network Security Groups (NSGs) and Application Security Groups (ASGs).
+*End of Lab 02 - Network Security Groups (NSGs) and Application Security Groups (ASGs)*.
