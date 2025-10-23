@@ -2,7 +2,7 @@
 
 ## Overview
 This lab focused on deploying and configuring **Azure Firewall** to control and log network traffic between subnets within a virtual network.  
-The lab demonstrated how Azure Firewall integrates with **route tables**, **network rules**, and **application rules** to provide centralized network security and traffic filtering.  
+The lab demonstrated how Azure Firewall integrates with **route tables**, **network rules**, and **application rules** to provide centralised network security and traffic filtering.  
 All resources were deployed in the **West Europe** region after editing the original ARM template to ensure full regional compatibility.
 
 ---
@@ -81,10 +81,14 @@ Testing confirmed that network and application rules worked as expected, allowin
 
 ## Step 7: Clean Up Resources
 After completing all verification steps, I deleted the entire resource group using PowerShell to clean up the environment and prevent ongoing resource costs.
+I used the following command: Remove-AzResourceGroup -Name AZ500-Lab03 -Force
 
 ![PowerShell cleanup window](../2025-10-23%20(8).png)
 
+---
 
+## Summary 
+This lab demonstrated how **Azure Firewall** can be used as a stateful, centralised network security solution to inspect and filter outbound and inbound traffic in Azure.
+By integrating the firewall with **route tables**, **DNS configuration**, and **application/network rule collections**, I was able to enforce consistent security policies across subnets.
+Deploying through an ARM template provided a repeatable and automated way to provision secure network environments in Azure, facilitating any potential future deployments.
 
-```powershell
-Remove-AzResourceGroup -Name AZ500-Lab03 -Force
