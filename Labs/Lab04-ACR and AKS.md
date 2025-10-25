@@ -82,27 +82,27 @@ This deployed the NGINX application and created the associated Deployment and Se
 ---
 
 ## Step 10: Verifying External Hosted Service 
-The command '* kubectl get service nginxexternal*' was ran to get information about the *nginxexternal* service, including its **private IP address**.
+The command '*kubectl get service nginxexternal*' was ran to get information about the *nginxexternal* service, including its **private IP address**.
 Once I had the **private IP address**, I searched it into another browser window to ensure the setup was working correctly.
-This was validated when the 'Welcome to nginx!* page showed. 
+This was validated when the '*Welcome to nginx!*' page showed. 
 
 ![Welcome to nginx!](../IMG_2101.png) 
 
 ---
 
 ## Step 11: Deploying an Internal Service to AKS
-Next, I ran the '* code ./nginxinternal.yaml*' command to edit its content and change the *<ACRUniquename>* to the name of my **ACR**. 
-After saving the changes, I ran '* kubectl apply -f nginxinternal.yaml*' to apply the changes to the Cluster.
-I then ran '* kubectl get service nginxinternal*' to retrieve information about the internal service, making a note of the **IP address** for later steps.
+Next, I ran the '*code ./nginxinternal.yaml*' command to edit its content and change the *<ACRUniquename>* to the name of my **ACR**. 
+After saving the changes, I ran '*kubectl apply -f nginxinternal.yaml*' to apply the changes to the Cluster.
+I then ran '*kubectl get service nginxinternal*' to retrieve information about the internal service, making a note of the **IP address** for later steps.
 
 ![Internal service deployed in Bash window](../IMG_2105.png)
 
 ---
 
 ## Step 12: Verifying Access to AKS Internal Hosted Service
-In the same *Bash* window, I ran '* kubectl get pods*' to list the pods within the default namespace on the Cluster.
-I then made a note of the pod name and used it in the '* kubectl exec -it <pod_name> -- /bin/bash*' command in order to interact with the pod. 
-Finally, I ran '* curl http://<internal_IP>*' replacing '*<internal_IP>*' with the **IP address** noted in *Step 11*.
+In the same *Bash* window, I ran '*kubectl get pods*' to list the pods within the default namespace on the Cluster.
+I then made a note of the pod name and used it in the '*kubectl exec -it <pod_name> -- /bin/bash*' command in order to interact with the pod. 
+Finally, I ran '*curl http://<internal_IP>*' replacing '*<internal_IP>*' with the **IP address** noted in *Step 11*.
 The command validated that connection to the nginx website was successful. 
 
 ![Bash nginx connection](../IMG_2104.png)
