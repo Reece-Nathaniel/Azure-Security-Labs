@@ -12,7 +12,7 @@ The resource group was called *AZ500LAB09* and was deployed in the *West Europe*
 It contained the resources shown in the image below. I ran commands to ensure the Container Registry was registered to the lab environment.
 
 
-![Bash window](../IMG_2085.jpeg)
+![Bash window](../IMG_2085.png)
 
 ---
 
@@ -20,7 +20,7 @@ It contained the resources shown in the image below. I ran commands to ensure th
 I used the  az acr list --resource-group AZ500LAB09 to verify that both the AKS cluster (`MyKubernetesCluster`) and Azure Container Registry (`rnwaz500acr2025`) were successfully deployed. 
 This confirmed the environment was correctly initialised for subsequent steps.
 
-![Verifying Azure Resources](../IMG_2087.jpeg)
+![Verifying Azure Resources](../IMG_2087.png)
 
 ---
 
@@ -30,7 +30,7 @@ I then attempted to store the ACR name dynamically in a variable and build and p
 I received an error message stating that I was unable to do this due to the SKU of the subscription I was using.
 To overcome this, I ran '*az acr import -n $ACRNAME --source docker.io/library/nginx:latest --image sample/nginx:v1*' to import the existing *nginx image* directly into the **ACR**.
 
-![Creating Dockerfile](../IMG_2089.jpeg)
+![Creating Dockerfile](../IMG_2089.png)
 
 ---
 
@@ -39,27 +39,27 @@ I then closed the **Cloud Shell** window and headed to my AZ500LAB09 **Resource 
 I clicked on my ACR, navigated to *Services* and then clicked on my *Repository* 
 From here, I could verify that the new container image '*sample/nginx*' had been pushed successfully.
 
-![Verifying Repository](../IMG_2091.jpeg)
+![Verifying Repository](../IMG_2091.png)
 
 ---
 
 ## Step 5: Verifying Tag
 After verifying the presence of the *sample/nginx* image, I then ensured the v1 tag was present identifying the image version.
 
-![Verifying v1 tag](../IMG_2090.jpeg) 
+![Verifying v1 tag](../IMG_2090.png) 
 
 ## Step 6: Creating a Kubernetes Cluster
 Through the Azure Portal, I created a **Kubernetes Cluster**.
 The purpose of this was to ensure I could host, orchestrate, and manage my containerised application - the *nginx web server*. 
 I named the **Kubernetes Cluster** '*MyKubernetesCluster*'. 
 
-![Creation of Kubernetes Cluster](../IMG_2094.jpeg) 
+![Creation of Kubernetes Cluster](../IMG_2094.png) 
 
 ## Step 7: Connecting to the Cluster 
 Opening a PowerShell window, I ran the *Bash* command 'az aks get-credentials --resource-group AZ500LAB09 --name MyKubernetesCluster' to connect to the Kubernetes Cluster.
 I then ran 'kubectl get nodes' to list the nodes of the cluster. This allowed me to verify the connection and status of the nodes.
 
-![Listing nodes](../IMG_2097.jpeg)
+![Listing nodes](../IMG_2097.png)
 
 ---
 
@@ -67,7 +67,7 @@ I then ran 'kubectl get nodes' to list the nodes of the cluster. This allowed me
 *Bash* was also used within **PowerShell** to grant the Cluster permissions to access the **ACR** and manage its **Virtual Network**.
 The commands in the image below were used to assign the *Contributor* role to the **AKS Cluster** for the **Virtual Network**. 
 
-![Role Assignment](../IMG_2098.jpeg) 
+![Role Assignment](../IMG_2098.png) 
 
 ___
 
@@ -77,7 +77,7 @@ The external **YAML** file was then edited to replace *<ACRUniquename>* with the
 I then saved my changes and applied it to the cluster using *kubectl apply -f nginxexternal.yaml*. 
 This deployed the NGINX application and created the associated Deployment and Service resources.
 
-![External service deployment](../IMG_2099.jpeg) 
+![External service deployment](../IMG_2099.png) 
 
 ---
 
@@ -86,7 +86,7 @@ The command '* kubectl get service nginxexternal*' was ran to get information ab
 Once I had the **private IP address**, I searched it into another browser window to ensure the setup was working correctly.
 This was validated when the 'Welcome to nginx!* page showed. 
 
-![Welcome to nginx!](../IMG_2101.jpeg) 
+![Welcome to nginx!](../IMG_2101.png) 
 
 ---
 
@@ -95,7 +95,7 @@ Next, I ran the '* code ./nginxinternal.yaml*' command to edit its content and c
 After saving the changes, I ran '* kubectl apply -f nginxinternal.yaml*' to apply the changes to the Cluster.
 I then ran '* kubectl get service nginxinternal*' to retrieve information about the internal service, making a note of the **IP address** for later steps.
 
-![Internal service deployed in Bash window](../IMG_2105.jpeg)
+![Internal service deployed in Bash window](../IMG_2105.png)
 
 ---
 
@@ -105,7 +105,7 @@ I then made a note of the pod name and used it in the '* kubectl exec -it <pod_n
 Finally, I ran '* curl http://<internal_IP>*' replacing '*<internal_IP>*' with the **IP address** noted in *Step 11*.
 The command validated that connection to the nginx website was successful. 
 
-![Bash nginx connection](../IMG_2104.jpeg)
+![Bash nginx connection](../IMG_2104.png)
 
 --- 
 
