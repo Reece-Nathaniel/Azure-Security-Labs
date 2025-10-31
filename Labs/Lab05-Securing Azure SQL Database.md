@@ -1,6 +1,6 @@
 # Lab 05: Securing Azure SQL Database
 
-## 🧩 Overview
+## Overview
 This lab focuses on implementing security controls for an **Azure SQL Database**, including enabling Microsoft Defender for SQL, classifying sensitive data, and configuring auditing to monitor access and activity.
 
 The goal is to ensure Azure SQL resources meet security best practices through visibility, classification, and protection of data and access.
@@ -14,11 +14,11 @@ This created:
 - A single SQL database  
 - Networking and security dependencies automatically linked  
 
-![Deployed JSON template](../IMG_2175.jpeg)
+![Deployed JSON template](../IMG_2175.png)
 
 Once the deployment completed successfully, both the SQL server and SQL database appeared in the resource group.
 
-![Deployed SQL Database and Server](../IMG_2176.jpeg)
+![Deployed SQL Database and Server](../IMG_2176.png)
 
 ---
 
@@ -26,7 +26,7 @@ Once the deployment completed successfully, both the SQL server and SQL database
 Next, **Microsoft Defender for SQL** was enabled from **Defender for Cloud** under the SQL resources section.  
 This added advanced threat protection to the SQL server, providing real-time detection of potential SQL injection, brute-force attempts, and anomalous access patterns.
 
-![Defender for SQL Enabled](../IMG_2177.jpeg)
+![Defender for SQL Enabled](../IMG_2177.png)
 
 ---
 
@@ -34,11 +34,11 @@ This added advanced threat protection to the SQL server, providing real-time det
 Data discovery and classification was performed on the database to identify fields that may contain sensitive information such as names, email addresses, or credit card data.  
 The recommendations tab displayed potential classifications which were reviewed and accepted.
 
-![Classification Recommendations Displayed](../IMG_2178.jpeg)
+![Classification Recommendations Displayed](../IMG_2178.png)
 
 After accepting the recommendations, the classification overview reflected the updated charts showing **sensitivity label distribution** and **information type coverage**.
 
-![Classification Overview Charts](../IMG_2180.jpeg)
+![Classification Overview Charts](../IMG_2180.png)
 
 ---
 
@@ -46,7 +46,7 @@ After accepting the recommendations, the classification overview reflected the u
 SQL auditing was enabled at the **server level**, directing logs to an Azure Storage account.  
 This ensures all login attempts, data access, and modification activities are captured for forensic review and compliance.
 
-![Auditing Configuration](../IMG_2181.jpeg)
+![Auditing Configuration](../IMG_2181.png)
 
 ---
 
@@ -54,15 +54,15 @@ This ensures all login attempts, data access, and modification activities are ca
 A failed login attempt to the SQL database was simulated using the **Query Editor (Preview)** to test the auditing setup.  
 The system successfully recorded the authentication failure, validating the audit configuration.
 
-![Failed Login Attempt](../IMG_2185.jpeg)
+![Failed Login Attempt](../IMG_2185.png)
 
 The audit logs were then reviewed within the Azure Portal, confirming that events were being stored in the specified Storage account.
 
-![Audit Records Captured](../IMG_2187.jpeg)
+![Audit Records Captured](../IMG_2187.png)
 
 ---
 
-## ✅ Summary
+## Summary
 In this lab, an **Azure SQL Database** was secured through multiple layers:
 - Defender for SQL enabled to detect threats  
 - Sensitive data discovered and classified  
